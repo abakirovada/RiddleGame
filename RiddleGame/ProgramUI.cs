@@ -89,7 +89,7 @@ namespace RiddleGame
             {
                 Console.Clear();
                 Console.WriteLine("\n\tYou better get a new fence, yours is broken!!\n\nYou get a 'C'!!\n\nPress any key to go to main menu");
-                _letterList.Add("C");
+                if(!_letterList.Contains("C"))_letterList.Add("C");
                 Console.ReadKey();
             }
             else if (userInput == "2")
@@ -121,7 +121,7 @@ namespace RiddleGame
             {
                 Console.Clear();
                 Console.WriteLine("\n\tSure! I hope you know why. Just kidding. Of course you know! As an award, I will give you a letter, which is 'O'. Not zero!\n\nPress any key to go to main menu");
-                _letterList.Add("O");
+                if(!_letterList.Contains("O"))_letterList.Add("O");
                 Console.ReadKey();
             }
             else if (command == null)
@@ -159,7 +159,7 @@ namespace RiddleGame
             {
                 Console.Clear();
                 Console.WriteLine("\n\tThat's right! You CAN hold someone else's left hand, but not your own! you get a 'E'!!!\n\nPress any key to go to main menu");
-                _letterList.Add("E");
+                if(!_letterList.Contains("E"))_letterList.Add("E");
                 Console.ReadKey();
             }
             else
@@ -184,7 +184,7 @@ namespace RiddleGame
                 {
                     Console.Clear();
                     Console.WriteLine("\n\tSmart! I doubted that you would guess it...kidding...I have a surprise for you. Letteeeeeeer: 'H'!\n\nPress any key to go to main menu");
-                    _letterList.Add("H");
+                    if(!_letterList.Contains("H"))_letterList.Add("H");
                     Console.ReadKey();
                 }
                 else if (command == null)
