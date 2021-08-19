@@ -95,14 +95,16 @@ namespace RiddleGame
             else if (userInput == "2")
             {
                 Console.Clear();
-                Console.WriteLine("\n\tYou certainly need a new, not so rude elephant, but no leter for you! Go back and try again!\n\nPress any key to go to main menu");
+                Console.WriteLine("\n\tYou certainly need a new, not so rude elephant, but no leter for you! Go back and try again!\n\nPress any key to go try again");
                 Console.ReadKey();
+                PathOne();
             }
             else
             {
                 Console.Clear();
-                Console.WriteLine("\n\tChoose either a 1 or a 2!!\n\nPress any key to go to main menu");
+                Console.WriteLine("\n\tChoose either a 1 or a 2!!\n\nPress any key to go try again");
                 Console.ReadKey();
+                PathOne();
 
             }
 
@@ -125,14 +127,16 @@ namespace RiddleGame
             else if (command == null)
             {
                 Console.Clear();
-                Console.WriteLine("\n\tChoose one of the options: 1 or 2?\n\nPress any key to go to main menu");
+                Console.WriteLine("\n\tChoose one of the options: 1 or 2?\n\nPress any key to try again");
                 Console.ReadKey();
+                PathTwo();
             }
             else
             {
                 Console.Clear();
-                Console.WriteLine("\n\tOoops! No! I think you know what to choose now\n\nPress any key to go to main menu");
+                Console.WriteLine("\n\tOoops! No! I think you know what to choose now\n\nPress any key to try again");
                 Console.ReadKey();
+                PathTwo();
 
             }
 
@@ -147,8 +151,9 @@ namespace RiddleGame
             if (userInput == "1")
             {
                 Console.Clear();
-                Console.WriteLine("\n\tAre there really right and left handed pencils O_o?? Try again!!\n\nPress any key to go to main menu");
+                Console.WriteLine("\n\tAre there really right and left handed pencils O_o?? Try again!!\n\nPress any key to try again...");
                 Console.ReadKey();
+                PathThree();
             }
             else if (userInput == "2")
             {
@@ -160,8 +165,9 @@ namespace RiddleGame
             else
             {
                 Console.Clear();
-                Console.WriteLine("\n\tPlease choose either a 1 or a 2!\n\nPress any key to go to main menu");
+                Console.WriteLine("\n\tPlease choose either a 1 or a 2!\n\nPress any key to try again...");
                 Console.ReadKey();
+                PathOne();
 
             }
 
@@ -184,13 +190,16 @@ namespace RiddleGame
                 else if (command == null)
                 {
                     Console.Clear();
-                    Console.WriteLine("\n\tChoose one of the options: 1 or 2?\n\nPress any key to go to main menu");
+                    Console.WriteLine("\n\tChoose one of the options: 1 or 2?\n\nPress any key to try again...");
+                    Console.ReadKey();
+                    PathFour();
                 }
                 else
                 {
                     Console.Clear();
-                    Console.WriteLine("\n\tOoops! Not correct! I think you know what to choose now\n\nPress any key to go to main menu");
+                    Console.WriteLine("\n\tOoops! Not correct! I think you know what to choose now\n\nPress any key to try again...");
                     Console.ReadKey();
+                    PathFour();
                 }
 
             }
@@ -241,14 +250,15 @@ namespace RiddleGame
             if (command == "echo")
             {
                 Console.Clear();
-                Console.WriteLine("\n\tWow! You are AMAZING!\n\nPress any key to go to main menu\n\nPress any key to go to main menu");
+                Console.WriteLine("\n\tWow! You are AMAZING!\n\nPress any key to go to main menu");
                 Console.ReadKey();
             }
-            else if (command == null)
+            else if (command != "echo")
             {
                 Console.Clear();
-                Console.WriteLine("\n\tOoops! Try again!\n\nPress any key to go to main menu");
+                Console.WriteLine("\n\tOoops! Try again!\n\nPress any key to go to the menu");
                 Console.ReadKey();
+                    
             }
             else
             {

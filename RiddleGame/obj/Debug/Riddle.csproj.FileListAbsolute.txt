@@ -1,0 +1,7 @@
+C:\Users\dabak\Source\Repos\RiddleGame\RiddleGame\bin\Debug\RiddleGame.exe.config
+C:\Users\dabak\Source\Repos\RiddleGame\RiddleGame\bin\Debug\RiddleGame.exe
+C:\Users\dabak\Source\Repos\RiddleGame\RiddleGame\bin\Debug\RiddleGame.pdb
+C:\Users\dabak\Source\Repos\RiddleGame\RiddleGame\obj\Debug\Riddle.csproj.AssemblyReference.cache
+C:\Users\dabak\Source\Repos\RiddleGame\RiddleGame\obj\Debug\Riddle.csproj.CoreCompileInputs.cache
+C:\Users\dabak\Source\Repos\RiddleGame\RiddleGame\obj\Debug\RiddleGame.exe
+C:\Users\dabak\Source\Repos\RiddleGame\RiddleGame\obj\Debug\RiddleGame.pdb
