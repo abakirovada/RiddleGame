@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -9,26 +10,40 @@ namespace RiddleGame
 {
     public class ProgramUI
     {
-        public enum Letters { E, C, H, O}
-        public List<Letters> _letterList = new List<Letters>();
+        public enum Letters { E, C, H, O }
+        public List<string> _letterList = new List<string>();
 
         public void Run()
-        {
+        {   
+            GameTitle gameTitle = new GameTitle();
+            gameTitle.RunName(); 
+            Console.BackgroundColor=ConsoleColor.Gray;
+            Console.ForegroundColor = ConsoleColor.Red; 
+            Console.ReadKey();
+
             Menu();
         }
 
         public void Menu()
         {
+
             bool continueToRun = true;
             while (continueToRun)
             {
                 Console.Clear();
-                Console.WriteLine("Welcome to the Riddle Game! I will give you a riddle to solve. Solve the riddle by going down each path and collecting letters to help you find the answer!\n\nHere is your riddle:\n\nI speak without a mouth and hear without ears. I have no body, but i come alive with wind. What am I??\n\nChoose from the menu options below by typing the number path you'd like to go down.\nMenu:\nPath 1\nPath 2\nPath 3\nPath 4\n5. See aquired letters\n6. Guess Riddle\n7. Exit");
+
+                Console.WriteLine($"\t\t\t\n\nWelcome to the Riddle Game! I will give you a riddle to solve. Solve the riddle by going down each path and collecting" +
+                    " letters to help you find the answer!\n\n\t\t\t\t\t\tHere is your riddle:\n\n~~~I speak without a mouth and hear without ears. I have no body, but " +
+                    "I come alive with wind. What am I??~~~\n\nChoose from the following options by typing the number path you'd like to go down.\n\tMenu:\n\tPath " +
+                    "1\n\tPath 2\n\tPath 3\n\tPath 4\n\t5. See aquired letters\n\t6. Guess Riddle\n\t7. Exit");
 
                 string userInput = Console.ReadLine();
                 if (_letterList.Contains("C") && _letterList.Contains("E") && _letterList.Contains("H") && _letterList.Contains("O"))
                 {
-                    Console.WriteLine("You have all the letters needed for the answer! Press any key to go to main menu and make your guess!");
+                    Console.Clear();
+                    Console.WriteLine("\t\n\nYou have all the letters needed for the answer! Press any key to go to main menu and make your guess!");
+                    Console.WriteLine("\n\t\nYou acquired the followings:\n\n");
+                    _letterList.ForEach(Console.WriteLine);
                     Console.ReadKey();
                 }
 
@@ -55,11 +70,11 @@ namespace RiddleGame
                         break;
                     case "7":
                         Console.Clear();
-                        Console.WriteLine("Goodbye!");
+                        Console.WriteLine("\n\tGoodbye!");
                         Thread.Sleep(2000);
                         break;
                     default:
-                        Console.WriteLine("Enter a valid number");
+                        Console.WriteLine("\n\tEnter a valid number");
                         break;
                 }
             }
@@ -68,25 +83,25 @@ namespace RiddleGame
         public void PathOne()
         {
             Console.Clear();
-            Console.WriteLine("You found another riddle!\nWhat time is it when en elephant sits on your fence?\n\n1. Time to get a new fence\n2. Time to get a new elephant\nChoose your answer with a 1 or 2\n");
+            Console.WriteLine("\n\tYou found another riddle!\nWhat time is it when en elephant sits on your fence?\n\n1. Time to get a new fence\n2. Time to get a new elephant\nChoose your answer with a 1 or 2\n");
             string userInput = Console.ReadLine();
             if (userInput == "1")
             {
                 Console.Clear();
-                Console.WriteLine("You better get a new fence, yours is broken!!\n\nYou get a 'C'!!\n\nPress any key to go to main menu");
+                Console.WriteLine("\n\tYou better get a new fence, yours is broken!!\n\nYou get a 'C'!!\n\nPress any key to go to main menu");
                 _letterList.Add("C");
                 Console.ReadKey();
             }
             else if (userInput == "2")
             {
                 Console.Clear();
-                Console.WriteLine("You certainly need a new, not so rude elephant, but no leter for you! Go back and try again!\n\nPress any key to go to main menu");
+                Console.WriteLine("\n\tYou certainly need a new, not so rude elephant, but no leter for you! Go back and try again!\n\nPress any key to go to main menu");
                 Console.ReadKey();
             }
             else
             {
                 Console.Clear();
-                Console.WriteLine("Choose either a 1 or a 2!!\n\nPress any key to go to main menu");
+                Console.WriteLine("\n\tChoose either a 1 or a 2!!\n\nPress any key to go to main menu");
                 Console.ReadKey();
 
             }
@@ -96,27 +111,27 @@ namespace RiddleGame
         public void PathTwo()
         {
             Console.Clear();
-            Console.WriteLine("What gets wet while drying\n\n1. Water\n2. A Towel\nChoose your answer with a 1 or 2\n");
+            Console.WriteLine("\n\tWhat gets wet while drying\n\n1. Water\n2. A Towel\nChoose your answer with a 1 or 2\n");
 
             string command = Console.ReadLine().ToLower();
 
             if (command == "2")
             {
                 Console.Clear();
-                Console.WriteLine("Sure! I hope you know why. Just kidding. Of course you know! As an award, I will give you a letter, which is 'O'. Not zero!\n\nPress any key to go to main menu");
+                Console.WriteLine("\n\tSure! I hope you know why. Just kidding. Of course you know! As an award, I will give you a letter, which is 'O'. Not zero!\n\nPress any key to go to main menu");
                 _letterList.Add("O");
                 Console.ReadKey();
             }
             else if (command == null)
             {
                 Console.Clear();
-                Console.WriteLine("Choose one of the options: 1 or 2?\n\nPress any key to go to main menu");
+                Console.WriteLine("\n\tChoose one of the options: 1 or 2?\n\nPress any key to go to main menu");
                 Console.ReadKey();
             }
             else
             {
                 Console.Clear();
-                Console.WriteLine("Ooops! No! I think you know what to choose now\n\nPress any key to go to main menu");
+                Console.WriteLine("\n\tOoops! No! I think you know what to choose now\n\nPress any key to go to main menu");
                 Console.ReadKey();
 
             }
@@ -125,27 +140,27 @@ namespace RiddleGame
         public void PathThree()
         {
             Console.Clear();
-            Console.WriteLine("What can you hold in your right hand, but never in your left hand?\n\n1. A right handed pencil\n2. Your left hand\nChoose your answer with a 1 or 2\n");
+            Console.WriteLine("\n\tWhat can you hold in your right hand, but never in your left hand?\n\n1. A right handed pencil\n2. Your left hand\nChoose your answer with a 1 or 2\n");
 
             string userInput = Console.ReadLine().ToLower();
 
             if (userInput == "1")
             {
                 Console.Clear();
-                Console.WriteLine("Are there really right and left handed pencils O_o?? Try again!!\n\nPress any key to go to main menu");
+                Console.WriteLine("\n\tAre there really right and left handed pencils O_o?? Try again!!\n\nPress any key to go to main menu");
                 Console.ReadKey();
             }
             else if (userInput == "2")
             {
                 Console.Clear();
-                Console.WriteLine("That's right! You CAN hold someone else's left hand, but not your own! you get a 'E'!!!\n\nPress any key to go to main menu");
+                Console.WriteLine("\n\tThat's right! You CAN hold someone else's left hand, but not your own! you get a 'E'!!!\n\nPress any key to go to main menu");
                 _letterList.Add("E");
                 Console.ReadKey();
             }
             else
             {
                 Console.Clear();
-                Console.WriteLine("Please choose either a 1 or a 2!\n\nPress any key to go to main menu");
+                Console.WriteLine("\n\tPlease choose either a 1 or a 2!\n\nPress any key to go to main menu");
                 Console.ReadKey();
 
             }
@@ -155,26 +170,26 @@ namespace RiddleGame
         public void PathFour()
         {
             Console.Clear();
-            Console.WriteLine("What can you catch, but not throw?\n\n1. A cold\n2. a REEEEEEEALLY heavy ball\nChoose your answer with a 1 or 2\n");
+            Console.WriteLine("\n\tWhat can you catch, but not throw?\n\n1. A cold\n2. a REEEEEEEALLY heavy ball\nChoose your answer with a 1 or 2\n");
             {
                 string command = Console.ReadLine().ToLower();
 
                 if (command == "1")
                 {
                     Console.Clear();
-                    Console.WriteLine("Smart! I doubted that you would guess it...kidding...I have a surprise for you. Letteeeeeeer: 'H'!\n\nPress any key to go to main menu");
+                    Console.WriteLine("\n\tSmart! I doubted that you would guess it...kidding...I have a surprise for you. Letteeeeeeer: 'H'!\n\nPress any key to go to main menu");
                     _letterList.Add("H");
                     Console.ReadKey();
                 }
                 else if (command == null)
                 {
                     Console.Clear();
-                    Console.WriteLine("Choose one of the options: 1 or 2?\n\nPress any key to go to main menu");
+                    Console.WriteLine("\n\tChoose one of the options: 1 or 2?\n\nPress any key to go to main menu");
                 }
                 else
                 {
                     Console.Clear();
-                    Console.WriteLine("Ooops! Not correct! I think you know what to choose now\n\nPress any key to go to main menu");
+                    Console.WriteLine("\n\tOoops! Not correct! I think you know what to choose now\n\nPress any key to go to main menu");
                     Console.ReadKey();
                 }
 
@@ -183,128 +198,68 @@ namespace RiddleGame
         public void SeeAquiredLetters()
         {
             Console.Clear();
-            Console.WriteLine("Here are all the letters you've aquired!");
-            string userInput = Console.ReadLine();
-            if (_letterList.Contains("C") && _letterList.Contains("E") && _letterList.Contains("H") && _letterList.Contains("O"))
+            //Console.WriteLine("Here are all the letters you've aquired!");
+            //string userInput = Console.ReadLine();
+            if (_letterList.Count == 0)
             {
-                Console.WriteLine("You have all the letters needed for the answer! Press any key to go to main menu and make your guess!");
+                    Console.Clear();
+                    Console.WriteLine($"\t\n You thought you solved the riddles? Not yeeet! Go back and solve some, and earn letters." +
+                        $"\n\n\n\nPress any key to go to the main menu...");
+                    Console.ReadKey();
+            }
+            else
+            {
+                Console.Clear();
+                Console.WriteLine("\n\t\nYou acquired the followings:\n\n");
+                _letterList.ForEach(Console.WriteLine);
+                Console.WriteLine("\n\n\n\nPress any key to go to the main menu...");
                 Console.ReadKey();
             }
-            else if (_letterList.Contains("C"))
-            {
-                Console.WriteLine("Letters aquired:\n\nC\n\nPress any key to go to main menu and make your guess!");
-                Console.ReadKey();
-            }
-            else if (_letterList.Contains("E"))
-            {
-                Console.WriteLine("Letters aquired:\n\nE\n\nPress any key to go to main menu and make your guess!");
-                Console.ReadKey();
+            //foreach (string letter in _letterList)
+            //{
+            //    //if (_letterList.Count == 4)
+            //    //{
+            //    //    Console.Clear();
+            //    //    Console.WriteLine("\n\t\nYou acquired the followings:\n\n");
+            //    //    _letterList.ForEach(Console.WriteLine);
+            //    //    GuessRiddle();
+            //    //    Console.ReadKey();
+            //    //}
+            //    if (letter == null)
+            //    {
 
-            }
-            else if (_letterList.Contains("H"))
-            {
-                Console.WriteLine("Letters aquired:\n\nH\n\nPress any key to go to main menu and make your guess!");
-                Console.ReadKey();
-
-            }
-            else if (_letterList.Contains("O"))
-            {
-                Console.WriteLine("Letters aquired:\n\nO\n\nPress any key to go to main menu and make your guess!");
-                Console.ReadKey();
-
-            }
-            else if (_letterList.Contains("C") && _letterList.Contains("E"))
-            {
-                Console.WriteLine("Letters aquired:\n\nC & E\n\nPress any key to go to main menu and make your guess!");
-                Console.ReadKey();
-            }
-            else if (_letterList.Contains("C") && _letterList.Contains("H"))
-            {
-                Console.WriteLine("Letters aquired:\n\nC & H\n\nPress any key to go to main menu and make your guess!");
-                Console.ReadKey();
-            
-            }
-            else if (_letterList.Contains("C") && _letterList.Contains("O"))
-            {
-                Console.WriteLine("Letters aquired:\n\nC & O\n\nPress any key to go to main menu and make your guess!");
-                Console.ReadKey();
-
-            }
-            else if (_letterList.Contains("E") && _letterList.Contains("H"))
-            {
-                Console.WriteLine("Letters aquired:\n\nE & H\n\nPress any key to go to main menu and make your guess!");
-                Console.ReadKey();
-
-            }
-            else if (_letterList.Contains("E") && _letterList.Contains("O"))
-            {
-                Console.WriteLine("Letters aquired:\n\nE & O\n\nPress any key to go to main menu and make your guess!");
-                Console.ReadKey();
-
-            }
-            else if (_letterList.Contains("O") && _letterList.Contains("H"))
-            {
-                Console.WriteLine("Letters aquired:\n\nO & H\n\nPress any key to go to main menu and make your guess!");
-                Console.ReadKey();
-
-            }
-            else if (_letterList.Contains("O") && _letterList.Contains("H") && _letterList.Contains("C"))
-            {
-                Console.WriteLine("Letters aquired:\n\nO, C & H\n\nPress any key to go to main menu and make your guess!");
-                Console.ReadKey();
-
-            }
-            else if (_letterList.Contains("O") && _letterList.Contains("H") && _letterList.Contains("E"))
-            {
-                Console.WriteLine("Letters aquired:\n\nO, E & H\n\nPress any key to go to main menu and make your guess!");
-                Console.ReadKey();
-
-            }
-            else if (_guess.Contains("O") && _guess.Contains("E") && _guess.Contains("C"))
-            {
-                Console.WriteLine("Letters aquired:\n\nO, C & E\n\nPress any key to go to main menu and make your guess!");
-                Console.ReadKey();
-
-            }
-            else if (_guess.Contains("E") && _guess.Contains("H") && _guess.Contains("C"))
-            {
-                Console.WriteLine("Letters aquired:\n\nE, C & H\n\nPress any key to go to main menu and make your guess!");
-                Console.ReadKey();
-
-            }
+            //    }
+            //}
 
         }
         public void GuessRiddle()
         {
             Console.Clear();
-            Console.WriteLine("What is your guess to the riddle?\n\nI speak without a mouth and hear without ears. I have no body, but i come alive with wind. What am I??");
+            Console.WriteLine("\n\tWhat is your guess to the riddle?\n\nI speak without a mouth and hear without ears. I have no body, but i come alive with wind. What am I??");
             string command = Console.ReadLine().ToLower();
 
             if (command == "echo")
             {
                 Console.Clear();
-                Console.WriteLine("Wow! You are AMAZING!\n\nPress any key to go to main menu\n\nPress any key to go to main menu");
+                Console.WriteLine("\n\tWow! You are AMAZING!\n\nPress any key to go to main menu\n\nPress any key to go to main menu");
                 Console.ReadKey();
             }
             else if (command == null)
             {
                 Console.Clear();
-                Console.WriteLine("Ooops! Try again!\n\nPress any key to go to main menu");
+                Console.WriteLine("\n\tOoops! Try again!\n\nPress any key to go to main menu");
                 Console.ReadKey();
             }
             else
             {
                 Console.Clear();
-                Console.WriteLine("I thought you said you wanted to guess!\n\nPress any key to go to main menu");
+                Console.WriteLine("\n\tI thought you said you wanted to guess!\n\nPress any key to go to main menu");
                 Console.ReadKey();
             }
 
         }
 
-        public class LettersAquired
-        {
-            public List<string> _letterList = new List<string>();
-        }
+
 
 
 
