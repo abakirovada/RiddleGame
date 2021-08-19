@@ -95,7 +95,7 @@ namespace RiddleGame
             else if (userInput == "2")
             {
                 Console.Clear();
-                Console.WriteLine("\n\tYou certainly need a new, not so rude elephant, but no leter for you! Go back and try again!\n\nPress any key to go try again");
+                Console.WriteLine("\n\tYou certainly need a new, not so rude elephant, but no letter for you! Go back and try again!\n\nPress any key to go try again");
                 Console.ReadKey();
                 PathOne();
             }

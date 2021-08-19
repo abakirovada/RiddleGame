@@ -17,7 +17,9 @@ namespace RiddleGame
             {
                 Console.WriteLine("\t\t\t\t" + line);
             }
-           Console.WriteLine("\n\n\n\n\npress any key to continue...");
+           Console.WriteLine("\t\t\t\t\t" +
+               "\n\n\n\n\n\n by Dinara And Kristen" +
+               "\t\t\n\n\n\n\npress any key to continue...");
         }
     }
 }
